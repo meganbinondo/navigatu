@@ -17,8 +17,11 @@ return new class extends Migration
             $table->foreignId('id')->references('id')->on('users');
             //$table->foreignId('area_id')->references('area_id')->on('area');
             $table->string('area');
+            $table->string('details');
+            
             $table->time('start_time');
             $table->time('end_time');
+            $table->string('status')->nullable();
             $table->date('event_date');
             $table->timestamps();
         });

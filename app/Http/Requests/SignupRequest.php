@@ -11,7 +11,7 @@ class SignupRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,7 +26,17 @@ class SignupRequest extends FormRequest
                 'name'      => 'required|string|max:255',
                 'email'     => 'required|string|email|unique:App\Models\User,email|max:255',
                 'password'  => 'required|min:8|string|confirmed',
+
+                'phone'  => 'required|ph_mobile',
+                'organization'  => 'required|string',
             ];
         }
+    }
+
+    public function messages(): array
+    {
+        return [
+            'phone.ph_mobile' => 'Please enter a valid Philippine phone number.',
+        ];
     }
 }

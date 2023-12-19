@@ -21,6 +21,8 @@ class Signup extends Model
     protected $fillable = [
         'name',
         'email',
+        'phone',
+        'organization',
         'password',
          
     ];
@@ -62,6 +64,8 @@ class Signup extends Model
         return $this->create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'phone' => $data['phone'],
+            'organization' => $data['organization'],
             'password' => bcrypt($data['password']),
         ]);
     }

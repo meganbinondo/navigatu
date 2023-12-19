@@ -20,6 +20,8 @@ class Admin extends Model
      */
     protected $fillable = [
         'name',
+        'phone',
+        'organization',
         'email',
         'password',
          

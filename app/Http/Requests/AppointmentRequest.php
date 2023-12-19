@@ -23,10 +23,12 @@ class AppointmentRequest extends FormRequest
     {
         return [
             'id'            => 'sometimes|exists:users,id', //sometimes will let the id optional but required if provided
-            'area'          => 'required|string|in:conference room,navigatu hall|max:50',
-            'event_date'    => 'required|date|date_format:Y-m-d',
-            'start_time'    => 'required|date_format:H:i', // Hours and minutes
-            'end_time'      => 'required|date_format:H:i|after:start_time',
+            'area'          => 'sometimes|required|string|in:conference room,navigatu hall|max:50',
+            'details'       => 'sometimes|nullable|string',
+            'event_date'    => 'sometimes|required|date|date_format:Y-m-d',
+            'start_time'    => 'sometimes|required|date_format:H:i', // Hours and minutes
+            'end_time'      => 'sometimes|required|date_format:H:i|after:start_time',
+            'status'        => 'nullable|string|in:pending,reserved,cancelled,done|max:50',
         ];
     }
 }

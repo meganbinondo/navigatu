@@ -33,18 +33,7 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        // Retrieve the validated input data...
-    //     $validated = $request->validated();
-
-    //     $validated["password"] = Hash::make($validated["password"]);
-
-    //     $user = User::create($validated);
-
-    //     return $user;
-    // 
-
-
-        // Retrieve the validated input data...
+    
     $validated = $request->validated();
 
     // Set a default role if it is not provided
@@ -56,7 +45,10 @@ class UserController extends Controller
     // Create the user with the specified role
     $user = User::create($validated);
 
-    return $user;
+    return response()->json([
+        'success' => 'User successfully registered.',
+        'data' => $user,
+    ], 201);
     }
 
     /**

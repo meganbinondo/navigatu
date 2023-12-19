@@ -36,10 +36,14 @@ class Appointment extends Model
      * @var array
      */
     protected $fillable = [
-        'id',
         'area',
+        'details',
         'event_date', 
         'start_time', 
         'end_time'
+    ];
+
+    protected $hidden = [
+        'status',
     ];
 }

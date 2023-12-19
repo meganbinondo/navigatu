@@ -17,6 +17,15 @@ class SignupController extends Controller
 
     public function signup(SignupRequest $request)
     {
+        $validated = $request->validated();
+
+        if (!$validated['phone']) {
+            // Handle missing phone number error
+            return response()->json([
+                'message' => 'Phone number is required.'
+            ], 422);
+        }
+
         // Retrieve the validated input data...
         $validated = $request->validated();
 

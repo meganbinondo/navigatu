@@ -62,6 +62,8 @@ class UserRequest extends FormRequest
         } elseif ($this->routeIs('user.store')) {
             return [
                 'name' => 'required|string|max:255',
+                'phone'  => 'required|ph_mobile',
+                'organization'  => 'required|string',
                 'email' => 'required|string|email|unique:users,email|max:255',
                 'password' => 'required|min:8|confirmed',
                 'role'  => 'sometimes'
